@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 
   default_tags {
     tags = {
@@ -13,7 +13,7 @@ provider "aws" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.18.1"
+  version = ">= 3.18.1"
 
   name = var.vpc_name
   cidr = var.vpc_cidr
@@ -29,10 +29,10 @@ module "vpc" {
 
 module "ec2_instances" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "4.3.0"
+  version = ">= 4.3.0"
   count   = 2
 
-  name = "my-ec2-cluster"
+  name = "lb-ec2-cluster"
 
   ami                    = "ami-0c5204531f799e0c6"
   instance_type          = "t2.micro"
