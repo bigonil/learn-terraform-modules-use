@@ -6,6 +6,7 @@ terraform {
     organization = "lb-terraform-prd"
     workspaces {
       name = "learn-terraform-module-use"
+      project = "learn-terraform-prj"
     }
   }
 
